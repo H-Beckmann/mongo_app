@@ -39,6 +39,7 @@ class ClienteRepository {
   }
 
   static Future<List<Map<String, dynamic>>> getQueryData(String param) async{
+    //.eq pode ser substituido por outras funcoes do mongo, como .gt ou .gte por exemplo
     final listaCliente = await MongoDB.clienteCollection.find(where.eq('nome', param)).toList();
     return listaCliente;
   }
